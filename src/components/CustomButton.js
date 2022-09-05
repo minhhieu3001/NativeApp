@@ -1,25 +1,34 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text } from "react-native";
 
-const CustomButton = () => {
+const CustomButton = ({onPress,text, type = "PRIMARY"}) => {
     return(
-        <View style={styles.view}>
-            <Text style={styles.text}>LOG IN</Text>
-        </View>
+        <Pressable onPress={onPress} style={[styles.view, styles[`view_${type}`]]}>
+            <Text style={[styles.text, styles[`text_${type}`]]}>{text}</Text>
+        </Pressable>
     )
 }
 
 const styles = StyleSheet.create({
     view : {
-        backgroundColor : '#3B71F3',
-        
-        marginVertical : 15,
+        marginVertical : 5,
         padding: 10
+    },
+    view_PRIMARY : {
+        backgroundColor : '#3B71F3',
+    },
+    view_TERTIARY : {
+        backgroundColor : "",
     },
     text : {
         textAlign: 'center',
-        color : 'white',
         fontWeight : 'bold'
+    },
+    text_PRIMARY : {
+        color : "white",
+    },
+    text_TERTIARY : {
+        color : ''
     }
 });
 

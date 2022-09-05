@@ -1,10 +1,12 @@
 import React from "react";
 import { StyleSheet, TextInput, View, Dimensions, Image } from "react-native";
+import email1 from "../../assets/email1.png";
+import pass from "../../assets/pass.png";
 
-const CustomInput = ({value, setValue, placeholder, password, iconName}) => {
+const CustomInput = ({value, setValue, placeholder, password, image}) => {
     return (
         <View style={styles.input}>
-            <Image style={styles.icon} source={"/assets/email.png"} />
+            <Image style={styles.icon} source={image == "email" ? email1 : pass} />
             <TextInput
                 value={value} 
                 placeholder={placeholder} 
@@ -32,8 +34,10 @@ const styles = StyleSheet.create({
     
       },
     icon: {
-        width:30,
-        height: 30
+        width:40,
+        height: 30,
+        padding: 10,
+        margin: 7
     }
 })
 
